@@ -1,0 +1,14 @@
+Vue.js 方法 
+	$watch，用于观察 Vue 实例上的数据变动。
+
+	计算属性
+		计算属性默认只是 getter，
+		不过在需要时你也可以提供一个 setter：
+
+class与style绑定
+	两种方式： v-bind  和  Mustache标签
+	但是需要注意的是，两者不可混用，只可选其一！
+
+	对象语法：
+		v-bind： 将class作为一个对象传给v-bind，可以动态切换class
+		也可以直接绑定数据里的一个对象
