@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>params</title>
+</head>
+<body>
+<div id="demo" v-exa a="hi"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    /*
+    *   params  自定义指令，可以接收一个params数组，指定一个特性列表，Vue编译器自动提取绑定元素的特性。
+    *
+    * */
+    Vue.directive("exa",{
+        params: ['a'],
+        bind: function(){
+            console.log(this.params.a)  //hi
+        }
+    })
+
+    new Vue({
+        el: "#demo"
+    })
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend局部组件</title>
+</head>
+<body>
+    <div id="example">
+        <my-extend></my-extend>
+    </div>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+    /*
+    *
+    *   局部注册组件
+    *       不需要全局注册每个组件
+    *       用实例选项components注册
+    *
+    * */
+
+    var Child = Vue.extend({
+        template: "<div>这是一个局部组件</div>"
+    })
+    Vue.component("my-extend",Child);
+
+
+    new Vue({
+        el: "#example",
+        template : "<my-extend></my-extend>",
+        components: {
+            "child": Child
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend</title>
+</head>
+<body>
+    <div id="example">
+        <my-extend></my-extend>
+    </div>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+    /*
+    *   Vue.extend()是创建一个组件构造器
+    *   要把这个组件构造器用作组件的话，需要用Vue.component(tag，constructor)来注册；
+    *
+    *   示例 ：
+    *       var Mycomponent = Vue.extend({
+    *           //选项。。。。
+    *       })
+    *
+    *       Vue.component(自定义组件名，组件构造器)
+    *
+    * */
+    var Mycomponent = Vue.extend({
+        template: "<div>这是一个组件</div>"
+    })
+
+    Vue.component("my-extend",Mycomponent);
+
+    new Vue({
+        el:"#example"
+    })
+</script>
+</html>

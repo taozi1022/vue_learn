@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data必须是函数</title>
+</head>
+<body>
+    <div id="app">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+
+    /*三个组件共享了同一个 data ， 因此增加一个 counter 会影响所有组件！*/
+    var data = { counter:0 }
+    Vue.component("simple-counter",{
+        template: "<button @click='counter+=1'>{{counter}}</button>",
+        data:function(){
+            return data
+        }
+    })
+
+    new Vue({
+        el : "#app"
+    })
+
+
+
+
+/*通过为每个组件返回新的 data 对象来解决这个问题*/
+   /* var data = { counter:0 }
+    Vue.component("simple-counter",{
+        template: "<button @click='counter+=1'>{{counter}}</button>",
+        data:function(){
+            return {
+                counter : 0
+            }
+        }
+    })
+
+    new Vue({
+        el : "#app"
+    })*/
+</script>
+</html>

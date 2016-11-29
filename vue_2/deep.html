@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>deep</title>
+</head>
+<body>
+<div id="demo" v-my-directive="obj"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    Vue.directive('my-directive',{
+        deep:true,
+        update:function(obj){
+            /*在 `obj` 的嵌套属性变化时调用*/
+            console.log(1)
+        }
+    })
+
+    new Vue({
+        el : '#demo'
+    })
+</script>
+</html>
