@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局注册和局部注册</title>
+</head>
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var myComponent = Vue.extend({
+        template: '<div>这是一个组件</div>'
+    })
+
+    new Vue({
+        el: '#app',
+        /*注册局部组件在这里注册*/
+        components: {
+            'my-component': myComponent
+        }
+    })
+</script>
+</html>

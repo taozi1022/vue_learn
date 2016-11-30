@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件创建和注册</title>
+</head>
+<body>
+    <div id="app">
+        <!--  3、#app是vue示例挂载的元素，在挂载元素范围内使用组件  -->
+        <my-component></my-component>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    /*
+    *   1. 创建一个组件构造器
+    * */
+    var myComponet = Vue.extend({
+        template: '<div>这是一个组件</div>'
+    })
+
+    /*
+    *   2 、 注册组件，并指定组件的标签，组建的html标签为<my-component></my-component>
+    *  */
+
+    Vue.component('my-component',myComponet)
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

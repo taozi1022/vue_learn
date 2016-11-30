@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局注册和局部注册</title>
+</head>
+<body>
+    <div id="app">
+        <parent-component></parent-component>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var Child = Vue.extend({
+        template: "<p>这是一个子组件</p>"
+    })
+
+    var Parent = Vue.extend({
+        template: "<p>这是父组件</p><child></child>",
+        components: {
+            /*注册局部组件*/
+            'child' : Child
+        }
+    })
+
+    Vue.component('parent-component',Parent)
+
+    new Vue({
+        el : '#app'
+    })
+</script>
+</html>
