@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot</title>
+</head>
+<body>
+    <div id="app">
+        <my-component>
+            <h1>Hello Vue.js</h1>
+        </my-component>
+        <my-component>
+        </my-component>
+    </div>
+    <template id="myComponent">
+        <div class="content">
+            <h2>This is a component!</h2>
+            <slot>如果没有内容，则显示slot中的内容</slot>
+            <p>Say something......</p>
+        </div>
+    </template>
+</body>
+<script src="../vue.js"></script>
+<script>
+    Vue.component('my-component',{
+        template: "#myComponent"
+    })
+    new Vue({
+        el: "#app"
+    })
+
+    /*
+    *   分析
+    *       第一个<my-component>标签有一段分发内容hello Vue.js，在渲染组件的时候显示了替换了<template id="myComponent">的slot内容，
+    *       第二个<my-component>标签没有，所以在渲染组件时则显示了slot标签的内容。
+    *
+    *
+    * */
+</script>
+</html>
